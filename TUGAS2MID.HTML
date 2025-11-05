@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KulinerNews</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="site-header">
+      <h1 class="logo">KulinerNews</h1>
+      <nav class="site-nav">
+        <a class="active" href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#products">products</a>
+        <a href="#services">services</a>
+        <a href="#contact">contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO / SLIDER -->
+    <section class="cover" id="home" aria-label="Hero Slider">
+      <div class="slider" id="hero-slider">
+        <div class="slider-track">
+          <div class="slide"><img src="img/ayamgeprek1.png" alt="Ayam Geprek Maknyus"></div>
+          <div class="slide"><img src="img/promo.png" alt="Menu Paket Hemat"></div>
+        </div>
+
+        <!-- Tombol panah -->
+        <button class="slider-btn prev" aria-label="Sebelumnya">&#10094;</button>
+        <button class="slider-btn next" aria-label="Berikutnya">&#10095;</button>
+
+        <!-- Indikator -->
+        <div class="slider-dots" aria-label="Indikator">
+          <button aria-label="Slide 1" class="dot active"></button>
+          <button aria-label="Slide 2" class="dot"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artikel -->
+    <main class="content">
+      <article class="post">
+        <h2 class="post-title">Rekomendasi Makanan Hits</h2>
+        <p class="post-meta">ditulis oleh <a href="#">Team 3</a>, pada 27 Oktober 2025.</p>
+
+        <p>
+          Selamat datang di Ayam Geprek Maknyus, rumahnya pecinta pedas sejati!
+          Kami hadir dengan cita rasa ayam geprek yang gurih, renyah, dan pedasnya
+          bisa disesuaikan dengan selera. Dibuat dari bahan-bahan segar, ayam pilihan,
+          dan sambal ulek khas, setiap suapan menghadirkan sensasi pedas yang bikin
+          ketagihan. Nikmati berbagai menu pilihan kami dari ayam geprek original
+          hingga varian keju, sambal ijo, dan mozzarella semuanya dibuat langsung
+          oleh tangan-tangan ahli dengan kualitas terbaik.
+        </p>
+        <p>
+          Ayam Geprek Maknyus berdiri dengan semangat menghadirkan makanan lezat,
+          terjangkau, dan disukai semua kalangan. Kami percaya bahwa cita rasa autentik
+          Indonesia bisa tetap disajikan dengan cara modern tanpa kehilangan kelezatan
+          tradisionalnya. Moto kami: “Pedasnya Bikin Bahagia, Nikmatnya Tak Terlupakan”.
+        </p>
+      </article>
+    </main>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="content">
+      <h2>About</h2>
+      <h3>Temukan beragam pilihan menu lezat yang siap memanjakan lidah Anda:</h3>
+      <p>
+        Ayam Geprek Original – Ayam crispy dengan sambal ulek pedas khas.
+        Ayam Geprek Keju – Sensasi gurih ayam berpadu lelehan keju mozzarella.
+        Ayam Geprek Sambal Ijo – Pedas segar dengan aroma khas Nusantara.
+        Paket Hemat Geprek + Nasi + Es Teh – Harga ramah di kantong.
+        Rice Bowl Geprek – Praktis dan kekinian. Menu pelengkap: tahu/tempe geprek, jamur crispy, mie geprek, dll.
+      </p>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="content">
+      <h2>Products</h2>
+      <h3>Daftar menu favorit:</h3>
+      <ul>
+        <li>Ayam Geprek Original</li>
+        <li>Ayam Geprek Keju</li>
+        <li>Ayam Geprek Sambal Ijo</li>
+        <li>Paket Hemat Geprek + Nasi + Es Teh</li>
+      </ul>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="content">
+      <h2>Services</h2>
+      <h3>Kami ingin memastikan setiap pelanggan mendapatkan pengalaman terbaik. Layanan unggulan:</h3>
+      <ul>
+        <li>Dine-In: Suasana makan nyaman dan bersih.</li>
+        <li>Take Away: Pesan cepat untuk dibawa pulang.</li>
+        <li>Delivery: GoFood, GrabFood, ShopeeFood—tinggal klik!</li>
+        <li>Catering & Event: Untuk kantor, pesta ulang tahun, atau kampus. Promo rutin: beli 3 gratis 1, diskon akhir pekan.</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="content">
+      <h2>Contact</h2>
+      <h3>Hubungi kami:</h3>
+      <p>
+        📍 Jl. Sudirman No. 123, Rappang<br>
+        📱 WhatsApp: 0812-3456-7890<br>
+        📧 ayamgeprekmaknyus@gmail.com<br>
+        IG: @ayamgeprek_maknyus · TikTok: @geprekmaknyus.id<br>
+        Buka: 09.00–22.00 WIB
+      </p>
+    </section>
+  </div>
+
+  <!-- JS -->
+  <script>
+    // Aktifkan link nav ketika diklik
+    const navLinks = document.querySelectorAll(".site-nav a");
+    navLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        navLinks.forEach(nav => nav.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+
+    // ===== Slider dengan autoplay, swipe, tombol, dan dots =====
+    (function(){
+      const slider = document.getElementById('hero-slider');
+      if(!slider) return;
+
+      const track = slider.querySelector('.slider-track');
+      const slides = Array.from(slider.querySelectorAll('.slide'));
+      const prevBtn = slider.querySelector('.prev');
+      const nextBtn = slider.querySelector('.next');
+      const dots = Array.from(slider.querySelectorAll('.dot'));
+
+      const INTERVAL = 4000;
+      let index = 0;
+      let timer = null;
+      let isUserInteracting = false;
+
+      function goTo(i){
+        index = (i + slides.length) % slides.length;
+        track.scrollTo({ left: slides[index].offsetLeft, behavior: 'smooth' });
+        dots.forEach(d=>d.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
+
+      function next(){ goTo(index + 1); }
+      function prev(){ goTo(index - 1); }
+
+      function start(){
+        if(timer) clearInterval(timer);
+        timer = setInterval(()=>{ if(!isUserInteracting) next(); }, INTERVAL);
+      }
+      function stop(){ if(timer) clearInterval(timer); }
+
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+
+      dots.forEach((dot, i)=> dot.addEventListener('click', ()=> goTo(i)));
+
+      let scrollDebounce;
+      track.addEventListener('scroll', ()=>{
+        if(scrollDebounce) cancelAnimationFrame(scrollDebounce);
+        scrollDebounce = requestAnimationFrame(()=>{
+          const center = track.scrollLeft + track.clientWidth/2;
+          const newIndex = slides.findIndex(sl => 
+            center >= sl.offsetLeft && center < sl.offsetLeft + sl.clientWidth
+          );
+          if(newIndex >= 0 && newIndex !== index){
+            index = newIndex;
+            dots.forEach(d=>d.classList.remove('active'));
+            dots[index].classList.add('active');
+          }
+        });
+      });
+
+      ['mouseenter','focusin','touchstart','mousedown'].forEach(ev=>{
+        slider.addEventListener(ev, ()=>{ isUserInteracting = true; });
+      });
+      ['mouseleave','focusout','touchend','mouseup','touchcancel'].forEach(ev=>{
+        slider.addEventListener(ev, ()=>{ isUserInteracting = false; });
+      });
+
+      goTo(0);
+      start();
+
+      document.addEventListener('visibilitychange', ()=>{
+        if(document.hidden) stop(); else start();
+      });
+    })();
+
+    // Smooth scroll bawaan CSS sudah aktif via scroll-behavior: smooth;
+  </script>
+</body>
+</html>
